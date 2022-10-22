@@ -1,68 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="script-src *;">
-    <link rel="shortcut icon" href="{{ favicon }}">
-    <title>Customer Care Registry</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/landingPage.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/global.css') }}">
-    <script src="https://kit.fontawesome.com/8e4eb25eba.js" crossorigin="anonymous"></script>
-</head>
-<body>
-    <nav class="navbar navbar-expand-md bg-light nav-head">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="{{ url_for('static', filename='Images/CCM_LOGO.png') }}" alt="Customer Care Registry" width="190" height="38"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active row align-self-center text-center" aria-current="page" href="#"><i class="fa-solid fa-house"></i><span class="text-white">Home</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link row align-self-center text-center" href="#"><i class="fa fa-headphones"></i><span class="text-white">Service</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link row align-self-center text-center" href="#"><i class="fa fa-folder"></i><span class="text-white">About us</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link row align-self-center text-center" href="#"><i class="fa fa-question-circle"></i><span class="text-white">FAQ</span></a>
-                    </li>
-                </ul>
-                <span class="navbar-text">
-                    <button class="btn btn-primary offset-1 reg-log" role="login">Login</button>
-                </span>
-            </div>
-        </div>
-    </nav>
-    <section class="container-fluid row text-white w-100">
-        <div class="row text-center justify-content-center mt-lg-5 w-70">
-            <h1>Maintain Your Customer Services <div class="w-100"></div> 24/7</h1>
-            <img src="{{ url_for('static', filename='Images/24_7.png') }}" alt="27/7" style="width: 50vw;" class="fade-in-up">
-        </div>
-        <div class="row justify-content-center align-self-center w-30">
-            <img src="{{ url_for('static', filename='Images/building.png') }}" alt="Company_Building" style="width: 20vw; height: 40vh">
-            <h1 class="text-center">Company’s can<div class="w-100"></div>join us now</h1>
-            <p class="mt-2 w-75">100’s of company’s  join us tomaintain their customer careregistry’s for free of cost.</p>
-            <div class="mt-4 text-center"><button class="btn btn-primary reg-log">Company Registry</button> </div>
-            <h4 class="text-center mt-3">For a Hassle free experience</h4>
-        </div>
-    </section>
-    <footer>
-        <div class="cookies" style="display: none">
-            <p>This site uses cookies. <a href="https://www.google.com">Learn more</a> about how and why. <a href="https://zoho.com">Manage Settings</a> </p>
-            <button role="accept">OK</button>
-            <span class="cancelCookie" style="text-align: right; cursor: pointer;">X</span>
-        </div>
-    </footer>
-    <script src="{{ url_for('static', filename='JS/landingPage.js') }}"></script>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block head %}
+<title>Customer Care Registry</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/landingPage.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/global.css') }}">
+{% endblock %}
+
+{% block body %}
+<section class="container-fluid row text-white w-100">
+    <div class="row text-center justify-content-center mt-lg-5 w-70">
+        <h1>Maintain Your Customer Services <div class="w-100"></div> 24/7</h1>
+        <img src="{{ url_for('static', filename='Images/24_7.png') }}" alt="27/7" style="width: 50vw;" class="fade-in-up">
+    </div>
+    <div class="row justify-content-center align-self-center w-30">
+        <img src="{{ url_for('static', filename='Images/building.png') }}" alt="Company_Building" style="width: 20vw; height: 40vh">
+        <h1 class="text-center">Company’s can<div class="w-100"></div>join us now</h1>
+        <p class="mt-2 w-75">100’s of company’s  join us tomaintain their customer careregistry’s for free of cost.</p>
+        <div class="mt-4 text-center"><button class="btn btn-primary reg-log">Company Registry</button> </div>
+        <h4 class="text-center mt-3">For a Hassle free experience</h4>
+    </div>
+</section>
+<footer>
+    <div class="cookies" style="display: none">
+        <p>This site uses cookies. <a href="https://www.google.com">Learn more</a> about how and why. <a href="https://zoho.com">Manage Settings</a> </p>
+        <button role="accept">OK</button>
+        <span class="cancelCookie" style="text-align: right; cursor: pointer;">X</span>
+    </div>
+</footer>
+<script src="{{ url_for('static', filename='JS/landingPage.js') }}"></script>
+{% endblock %}
