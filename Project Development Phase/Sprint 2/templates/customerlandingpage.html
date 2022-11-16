@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/global.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/landingPage.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/custland.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/ticketHistory.css') }}">
+<title>Customer Chatting</title>
+{% endblock %}
+
+{% block body %}
+
+<div class="page-r d-flex">
+  <div class="nav-tab left-tab scroll-y">
+    <div class="dashboard-icons left-icons d-flex justify-content-center tab-icon-active">
+        <i class="fa fa-list fa-icons" aria-hidden="true"></i>
+    </div>
+    <div class="ticket-icons left-icons d-flex justify-content-center pointer-event">
+        <i class="fa fa-ticket fa-icons" aria-hidden="true"></i>
+    </div>
+  </div>
+  <div class="position-absolute end-0 top-0">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Search Company" aria-label="Search Company" aria-describedby="basic-addon2">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button"><i class="fa fa-search"></i></button>
+      </div>
+    </div>
+  </div>
+  <div class="choose_quries w-100 position-absolute d-flex justify-content-center">
+    <div class="label w-50 d-flex justify-content-center align-self-center">
+      <h4 class="mb-0">Choose your company to raise ticket</h4>
+    </div>
+    <div class="display-line-items w-75 d-flex justify-content-center align-self-center">
+      <div class="company-line-list justify-content-center">
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='JS/custland.js') }}"></script>
+{% endblock %}
