@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/global.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/landingPage.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/customer.css') }}">
+<title>Customer Chatting</title>
+{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid" style="width: 100vw;height: 90vh;display: grid;align-content: center;">
+    <section class="container-fluid row m-auto w-80">
+        <div style="max-width: 572px; margin-right: 9%;" class="w-50 col justify-content-center form-bg rounded-5 position-relative">
+            <h3 class="mt-4" style="color: #26A1A9;padding-bottom: 8%;">Create new account .</h3>
+            <form class="row w-100 m-auto" name="signup" autocomplete="off">
+                <div class="preSignup">
+                    <div class="form-floating mt-2 w-50">
+                        <input type="text" class="form-control form-input" id="floatingInput" placeholder="Name" name="name" required>
+                        <label for="floatingInput">Name</label>
+                    </div>
+                    <div class="form-floating mt-2 w-75">
+                        <input type="email" class="form-control form-input" placeholder="Email" name="email" required>
+                        <label for="floatingInput">Email address</label>
+                    </div>
+                    <div class="w-50 row justify-content-around" style="margin: 0 auto;">
+                        <button class="btn btn-primary reg-log mt-3 w-75" role="submitQuery" style="padding: 10px 15px;">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="w-75 row" style="width: 55%; max-width: 55%; justify-content: center;">
+            <img src="https://ccr-images.s3.jp-tok.cloud-object-storage.appdomain.cloud/Forms-rafiki.png" alt="LOGIN" style="width: 40vw; height: 55vh;">
+        </div>
+    </section>
+</div>
+
+<script src="{{ url_for('static', filename='JS/QueryRaise.js') }}"></script>
+{% endblock %}

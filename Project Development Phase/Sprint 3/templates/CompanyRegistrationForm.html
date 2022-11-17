@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Company Registration Page</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/global.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/customer.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/CompanyRegistrationForm.css') }}">
+{% endblock %}
+
+{% block body %}
+
+<div>
+    
+</div>
+<div id="Error-Message">
+    <i class="fa-solid fa-circle-exclamation"></i>
+   <p>Oops! <span class="insertError"></span></p>
+</div>
+<div class="container-fluid" style="background-color: #63DEE5;width: 100vw;height: calc(100vh - 67px);display: grid;align-content: center;">
+    <section class="container-fluid row m-auto w-80">
+        <div class="w-75 row" style="width: 55%; max-width: 55%; justify-content: center;">
+            <img src="https://ccr-images.s3.jp-tok.cloud-object-storage.appdomain.cloud/Company%20Registry.png" alt="LOGIN" style="width: 40vw; height: 55vh;">
+        </div>
+        <div style="margin-left: 9%;max-width: 480px;height: 600px;" class="w-50 col justify-content-center form-bg rounded-5 position-relative">
+            <h3 class="mt-4 text-center" style="color: #26A1A9;">Company account Register</h3>
+            <form class="row w-100 m-auto" name="customerSignup" autocomplete="off">
+                <div class="preSignup" style="width: 350px;margin: 0 auto;">
+                    <div class="form-floating mt-3 w-75">
+                        <input type="text" class="form-control form-input" id="floatingInput" placeholder="Name" name="name" required="">
+                        <label for="floatingInput">Company Name</label>
+                    </div>
+                    <div class="form-floating mt-3 w-75">
+                        <textarea name="customer-query" class="form-control form-input" style="resize: none; height: 122px; width: 300px;" placeholder="Query"></textarea>
+                        <label for="floatingInput">Description</label>
+                    </div>
+                    <div class="form-floating mt-3">
+                        <input type="email" class="form-control form-input" placeholder="Email" name="email" required="">
+                        <label for="floatingInput">Email address</label>
+                    </div>
+                    <div class="form-floating mt-3 w-75">
+                        <input type="number" class="form-control form-input" placeholder="number" name="number" required="">
+                        <label for="floatingInput">Number</label>
+                    </div>
+                    <div class="mt-3 w-75">
+                        <label class="form-label" for="customFile">Upload Company Logo</label>
+                        <input type="file" class="form-control" id="customFile">
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-primary reg-log mt-3 w-50" role="verifySignup" style="padding: 10px 15px;">Sign&nbsp;up</button>
+                    </div>
+                </div>
+            </form>
+            <div class="position-absolute start-50 top-50 w-100 spin-ab" hidden="">
+                <div class="spinner-border text-primary" role="status">
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="position-absolute w-100 black-screen disabled" style="height: 100vh; top: -67px;">
+    <div class="w-100 h-100 position-absolute" style="background-color: rgba(0,0,0,.5);"></div>
+    <div class="modal-body w-45 m-auto p-4" style="background-color: white; border-radius: 0 0 10px 10px;">
+        <div class="row check-agent">
+            <div class="col-lg-2">
+                <i>
+                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 512 512" xml:space="preserve" class="icon icon-xxlg-md icon-attention-circle" style="width: 50px;">
+                        <path d="M256 32c30.3 0 59.6 5.9 87.2 17.6 26.7 11.3 50.6 27.4 71.2 48s36.7 44.5 48 71.2c11.7 27.6 17.6 56.9 17.6 87.2s-5.9 59.6-17.6 87.2c-11.3 26.7-27.4 50.6-48 71.2s-44.5 36.7-71.2 48C315.6 474.1 286.3 480 256 480s-59.6-5.9-87.2-17.6c-26.7-11.3-50.6-27.4-71.2-48s-36.7-44.5-48-71.2C37.9 315.6 32 286.3 32 256s5.9-59.6 17.6-87.2c11.3-26.7 27.4-50.6 48-71.2s44.5-36.7 71.2-48C196.4 37.9 225.7 32 256 32m0-32C114.6 0 0 114.6 0 256s114.6 256 256 256 256-114.6 256-256S397.4 0 256 0z"></path>
+                        <circle cx="256" cy="384" r="32"></circle><path d="M256.3 96.3h-.6c-17.5 0-31.7 14.2-31.7 31.7v160c0 17.5 14.2 31.7 31.7 31.7h.6c17.5 0 31.7-14.2 31.7-31.7V128c0-17.5-14.2-31.7-31.7-31.7z"></path>
+                    </svg>
+                </i>
+            </div>
+            <div class="col-lg-7 " style="padding-left: 2px">
+                <p>Would you like to add Agents?</p> <!----> <!----> <!---->
+                <input type="radio" name="addAgents" value="Yes" onclick="check()"> Yes
+                <input type="radio" name="addAgents" value="No" onclick="check()"> No
+            </div>
+        </div>
+        <div class="w-100 mt-2 disabled create-agents">
+            <div class="Agent-1 w-100 d-flex justify-content-evenly">
+            </div>
+            <div class="add mt-3 w-50">
+                <button class="btn btn-secondary w-25" onclick="newEle()">Add</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='JS/CompanyRegistrationForm.js') }}"></script>
+{% endblock %}
