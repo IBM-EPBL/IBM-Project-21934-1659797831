@@ -4,7 +4,7 @@ from sendgrid.helpers.mail import *
 from Modules import verificationTemplate
 
 def sendMail(email, username):
-    sg = sendgrid.SendGridAPIClient('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')
+    sg = sendgrid.SendGridAPIClient('********************************')
     from_email = Email("customercareregistry1@gmail.com")
     to_email = To(email)
     subject = "Verification Code"
