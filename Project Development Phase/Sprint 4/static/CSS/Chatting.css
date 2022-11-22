@@ -1,0 +1,76 @@
+body{
+    overflow: auto !important;
+}
+
+.profile-icon{
+    width: 30px;
+    height: 30px;
+    background-color: #36989e !important;
+    border-radius: 15px;
+}
+
+.status-online {
+    background-color: lightgreen;
+}
+
+.status {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.status-offline {
+    background-color: red;
+}
+
+.chatting-page {
+    /* box-shadow: 0 0 2px 3px rgba(255,255,255, .5); */
+    border-radius: 15px;
+    padding: 15px;
+    height: 80vh;
+    margin: 5vh auto;
+    background-color: #FEFEFEBD;
+}
+
+.messages {
+    height: calc(100% - 15%) !important;
+}
+
+.user-message div, .message div {
+    display: flex;
+    align-items: center;
+}
+
+.user-message p, .message p {
+    width: fit-content;
+    height: fit-content;
+    margin: 10px;
+    padding: 10px;
+    background-color: blue;
+    border-radius: 10px;
+    color: white;
+}
+
+.user-message p::after {
+    position: absolute;
+    content: "";
+    right: 18px;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid blue;
+    border-right: none;
+}
+
+.message p::before {
+    position: absolute;
+    content: "";
+    left: 18px;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid blue;
+    border-left: none;
+}
+
+.text-area {
+    margin-left: -15px;
+}
