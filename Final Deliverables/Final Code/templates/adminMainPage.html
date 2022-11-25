@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/adminMainPage.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/global.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/landingPage.css') }}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"nonce="a9d09b55f2b66e00f4d27f8b453003e6" ></script>
+<title>Customer Chatting</title>
+{% endblock %}
+
+{% block body %}
+<div class="admin-index-dashboard d-flex">
+    <div class="nav-tab left-tab scroll-y">
+        <div class="dashboard-icons left-icons d-flex justify-content-center">
+            <i class="fa fa-list fa-icons" aria-hidden="true"></i>
+        </div>
+        <div class="ticket-icons left-icons d-flex justify-content-center tab-icon-active">
+            <i class="fa fa-ticket fa-icons" aria-hidden="true"></i>
+        </div>
+    </div>
+    <div class="tickets ticket-tab d-flex flex-column align-self-center mt-2">
+        {% for ticket in data %}
+        <div class="ticket-#{{ticket.ticket_id}} box-size text-black position-relative ticket-box flex-start">
+            <div class="button-click-more position-absolute end-0 align-items-center d-flex justify-content-between mt-2">
+                <button class="btn btn-click">more</button>
+                <i class="fa fa-angle-down" aria-hidden="true"></i>
+            </div>
+            <div class="ticket-details top">
+                <div class="date-ticket-status d-flex align-items-center justify-content-between">
+                    <p>Date: <span class="date-assign">{{ticket.date}}</span></p>
+                    <p>Ticket Status: <span class="ticket-status {{ticket.ticket_status.color}}">{{ticket.ticket_status.message}}</span></p>
+                </div>
+                <div class="email-ticket-ids d-flex align-items-center justify-content-between">
+                    <p>Email: <span class="email-ticket-id">{{ticket.email}}</span></p>
+                    <p>Ticket ID:&nbsp;#<span class="ticket-id">{{ticket.ticket_id}}</span></p>
+                </div>
+                <div class="ticket-query-details box-items">
+                    <div class="query-title"><p>Query : </p></div>
+                    <div class="query-description"><p>{{ticket.short}}</p></div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="right-tab scroll-y">
+        <div class="default-index-page overview-animated d-grid h-100">
+            <img src="https://ccr-images.s3.jp-tok.cloud-object-storage.appdomain.cloud/Active%20Support.gif">
+        </div>
+        <div class="form-ticket-assign w-100 h-100 disabled">
+            <form name="assign-task" class="h-100 position-relative">
+                <div class="customer-details h-100" style="overflow: auto;">
+                    <div class="title-customer-form"><h4 class="mb-0">Customer Details</h4></div>
+                    <div class="display-form h-100 disabled">
+                        <div class="form-section">
+                            <div class="inner-form-section d-flex align-items-center mb-2">
+                                <p class="left-form-section col-lg-2">Name</p>
+                                <input type="text" name="customer-name" class="form-control w-25">
+                            </div>
+                            <div class="inner-form-section d-flex align-items-center mb-2">
+                                <p class="left-form-section col-lg-2">Email</p>
+                                <input type="email" name="customer-email" class="form-control w-25">
+                            </div>
+                            <div class="inner-form-section d-flex align-items-center mb-2">
+                                <p class="left-form-section col-lg-2">Ticket Timestamp</p>
+                                <input type="date" name="customer-date" class="form-control w-25">
+                            </div>
+                            <div class="inner-form-section d-flex align-items-center mb-2" style="align-items: flex-start !important;">
+                                <p class="left-form-section col-lg-2">Query</p>
+                                <textarea name="customer-query" class="form-control w-25" style="resize: none;" rows="4"></textarea>
+                            </div>
+                        </div>
+                        <div class="title-company-form mt-3"><h4 class="mb-0 p-3">Company Agent Details</h4></div>
+                        <div class="form-section" style="background-color: white;border-bottom: 1px solid #d0cfcf;margin: 0 8px;">
+                            <div class="inner-form-section d-flex align-items-center mb-2">
+                                <p class="left-form-section col-lg-2">Company Name</p>
+                                <input type="text" name="company-name" class="form-control w-25" disabled>
+                            </div>
+                            <div class="inner-form-section d-flex align-items-center mb-2">
+                                <p class="left-form-section col-lg-2">Category</p>
+                                <div class="dropdown w-25">
+                                    <input class="dropdown-toggle form-control company-agent-category" name="company-agent-category" type="text">
+                                    <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton" style="border-radius: 0;top: 43px;">
+                                        <div class="loading-spin h-100 w-100 d-grid">
+                                            <div class="loader"></div>
+                                        </div>
+                                    </div>
+                                  </div>
+                            </div>
+                            <div class="inner-form-section d-flex align-items-center mb-2">
+                                <p class="left-form-section col-lg-2">Agent Name</p>
+                                <div class="dropdown w-25">
+                                    <input class="dropdown-toggle form-control company-agent-name" name="company-agent-name" type="text">
+                                    <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton" style="border-radius: 0;top: 43px;">
+                                        <div class="loading-spin h-100 w-100 d-grid">
+                                            <div class="loader"></div>
+                                        </div>
+                                    </div>
+                                  </div>
+                            </div>
+                            <div class="inner-form-section d-flex align-items-center mb-2">
+                                <p class="left-form-section col-lg-2">Agent Email</p>
+                                <input type="email" name="agent-email" class="form-control w-25">
+                            </div>
+                            <div class="inner-form-section d-flex align-items-center mb-2">
+                                <p class="left-form-section col-lg-2">Ticket Timestamp</p>
+                                <input type="date" name="company-date" class="form-control w-25">
+                            </div>
+                        </div>
+                        <div class="title-customer-notes mt-3"><h4 class="mb-0 p-3">Customer Notes</h4></div>
+                        <div class="form-section" style="background-color: white;border-bottom: 1px solid #d0cfcf;margin: 0 8px;">
+                            <div class="inner-form-section d-flex align-items-center mb-2">
+                                <textarea name="customer-query-notes" class="form-control w-50"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="loading-spin h-100 w-100 d-grid">
+                        <div class="loader"></div>
+                    </div>
+                </div>
+            </form>
+            <div class="submit cancel position-absolute bottom-0 p-2 disabled" style="width: calc(100vw - 24.7vw);box-shadow: 0 -4px 5px -3px rgba(0,0,0,.1); margin: 0 5px; background-color: white;">
+                <button class="btn btn-danger submitAgent" type="submit" role="assignTicket">submit</button>
+                <button type="submit" class="btn btn-secondary cancelAgent" style="background-color: #f5f5f5; color: #212529; border-radius: 3px; border: 1px solid #ddd;">cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="position-absolute w-100 disabled black-screen" style="height: 100vh; top: -50px;">
+    <div class="w-100 h-100 position-absolute" style="background-color: rgba(0,0,0,.5);"></div>
+    <div class="modal-body w-25">
+        <div class="row">
+            <div class="col-lg-2">
+                <i>
+                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 512 512" xml:space="preserve" class="icon icon-xxlg-md icon-attention-circle">
+                        <path d="M256 32c30.3 0 59.6 5.9 87.2 17.6 26.7 11.3 50.6 27.4 71.2 48s36.7 44.5 48 71.2c11.7 27.6 17.6 56.9 17.6 87.2s-5.9 59.6-17.6 87.2c-11.3 26.7-27.4 50.6-48 71.2s-44.5 36.7-71.2 48C315.6 474.1 286.3 480 256 480s-59.6-5.9-87.2-17.6c-26.7-11.3-50.6-27.4-71.2-48s-36.7-44.5-48-71.2C37.9 315.6 32 286.3 32 256s5.9-59.6 17.6-87.2c11.3-26.7 27.4-50.6 48-71.2s44.5-36.7 71.2-48C196.4 37.9 225.7 32 256 32m0-32C114.6 0 0 114.6 0 256s114.6 256 256 256 256-114.6 256-256S397.4 0 256 0z"></path>
+                        <circle cx="256" cy="384" r="32"></circle><path d="M256.3 96.3h-.6c-17.5 0-31.7 14.2-31.7 31.7v160c0 17.5 14.2 31.7 31.7 31.7h.6c17.5 0 31.7-14.2 31.7-31.7V128c0-17.5-14.2-31.7-31.7-31.7z"></path>
+                    </svg>
+                </i>
+            </div>
+            <div class="col-lg-10 " style="padding-left: 2px">
+                <p>Are you sure you want to leave this page?</p> <!----> <!----> <!---->
+                <div class="alert-actions btn-toolbar d-flex justify-content-evenly">
+                    <button class="btn btn-danger stay-agent-form" type="submit"><!----> Stay on this Page </button>
+                    <button class="btn btn-secondary leave-agent-form"> Leave this Page </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='JS/adminMainPageContentMaintainer.js') }}"nonce="a9d09b55f2b66e00f4d27f8b453003e6" ></script>
+<script type="text/javascript">
+    myVar = myFunc({{data|tojson}})
+</script>
+{% endblock %}

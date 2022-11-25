@@ -1,0 +1,52 @@
+.welcome::before {
+	content: 'Welcome Back !';
+	width: fit-content;
+	height: fit-content;
+	background-color: #63DEE5;
+    color: #fff;
+	padding: 1rem 1.5rem;
+	position: absolute;
+	left: -10px;
+	border-radius: 30px;
+	top: 10px;
+}
+
+.loader {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@media screen and (max-width: 480px){
+
+    .form-left.form-bg {
+        display: none !important;
+    }
+
+    .form-bg.welcome {
+        width: 94vw !important;
+        max-width: 95vw !important;
+        height: 80vh !important;
+    }
+
+}
+
+@media screen and (max-width: 480px){
+    .sign-up-form .images-signup {
+        display: none !important;
+    }
+    .form-signup {
+        width: 98vw !important;
+        max-width: 98vw !important;
+        margin-right: 0 !important;
+        margin-left: -18% !important;
+    }
+}

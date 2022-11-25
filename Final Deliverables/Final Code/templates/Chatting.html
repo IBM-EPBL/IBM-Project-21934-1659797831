@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/Chatting.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/global.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/landingPage.css') }}">
+<title>Customer Chatting</title>
+{% endblock %}
+
+{% block body %}
+
+
+<div class="chatting-page w-700p position-relative">
+    <div class="chatting-title headers d-flex justify-content-between align-items-center">
+        <div class="profile-details d-flex align-items-center justify-content-between">
+            <div class="profile-icon d-grid"><i class="fa fa-user" aria-hidden="true"></i></div>
+            <div class="profile-name" style="padding: 0 1rem;">Username</div>
+            <div class="profile-status"><div class="status status-offline"></div></div>
+        </div>
+        <div class="close-chat">
+            <button type="button" class="btn btn-secondary"><i class="fa fa-close" aria-hidden="true"></i></button>
+        </div>
+    </div>
+    <div class="message-section messages d-flex flex-column mt-4">
+    </div>
+    <div class="text-area d-flex position-absolute bottom-0 p-3 w-100 justify-content-evenly">
+        <button type="button" class="btn btn-primary"><i class="fa fa-plus"></i></button>
+        <input type="text" class="form-control w-75" id="message" placeholder="Message">
+        <button type="button" class="btn btn-primary" id="sendBtn"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='JS/chat.js') }}"nonce="a9d09b55f2b66e00f4d27f8b453003e6" ></script>
+
+{% endblock %}

@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/global.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/landingPage.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/adminMainPage.css') }}">
+<title>Customer Chatting</title>
+{% endblock %}
+
+{% block body %}
+<div class="cust d-flex">
+    <div class="nav-tab left-tab scroll-y">
+        <div class="dashboard-icons left-icons d-flex justify-content-center">
+            <i class="fa fa-list fa-icons" aria-hidden="true"></i>
+        </div>
+        <div class="ticket-icons left-icons d-flex justify-content-center tab-icon-active">
+            <i class="fa fa-ticket fa-icons" aria-hidden="true"></i>
+        </div>
+    </div>
+    <div class="tickets ticket-tab d-flex flex-column align-self-center mt-2">
+        {% for ticket in data %}
+        <div class="ticket-#{{ticket.ticket_id}} box-size text-black position-relative ticket-box flex-start">
+            <div class="button-click-more position-absolute end-0 align-items-center d-flex justify-content-between mt-2">
+                <button class="btn btn-click">more</button>
+                <i class="fa fa-angle-down" aria-hidden="true"></i>
+            </div>
+            <div class="ticket-details top">
+                <div class="email-ticket-ids d-flex align-items-center justify-content-between">
+                    <p>Ticket ID:&nbsp;#<span class="ticket-id">{{ticket.ticket_id}}</span></p>
+                </div>
+                <div class="date-ticket-status d-flex align-items-center justify-content-between">
+                    <p>Ticket Status: <span class="ticket-status {{ticket.ticket_status.color}}">{{ticket.ticket_status.message}}</span></p>
+                    <p>Date: <span class="date-assign">{{ticket.date}}</span></p>
+                </div>
+                <div class="ticket-query-details box-items">
+                    <div class="query-title"><p>Query : </p></div>
+                    <div class="query-description"><p>{{ticket.short}}</p></div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="right-tab scroll-y">
+        <div class="default-index-page overview-animated d-grid h-100">
+            <img src="https://ccr-images.s3.jp-tok.cloud-object-storage.appdomain.cloud/Active%20Support.gif">
+        </div>
+        <div class="form-ticket-assign w-100 h-100 disabled">
+            <form name="assign-task" class="h-100 position-relative">
+                <div class="customer-details h-100" style="overflow: auto;">
+                    <div class="title-customer-form"><h4 class="mb-0">Agent Details</h4></div>
+                    <div class="display-form h-100">
+                        <div class="form-section">
+                            <div class="inner-form-section d-flex align-items-center mb-2">
+                                <p class="left-form-section col-lg-2">Name</p>
+                                <input type="text" name="agent-name" class="form-control w-25" disabled>
+                            </div>
+                            <div class="inner-form-section d-flex align-items-center mb-2">
+                                <p class="left-form-section col-lg-2">Email</p>
+                                <input type="email" name="agent-email" class="form-control w-25" disabled>
+                            </div>
+                        </div>
+                        <div class="title-company-form mt-3"><h4 class="mb-0 p-3">Ticket Status</h4></div>
+                        <div class="form-section" style="background-color: white;border-bottom: 1px solid #d0cfcf;margin: 0 8px;">
+                            <div class="inner-form-section d-flex align-items-center mb-2">
+                                <p class="left-form-section col-lg-2">Ticket Timestamp</p>
+                                <input type="date" name="company-date" class="form-control w-25" disabled>
+                            </div>
+                            <div class="inner-form-section d-flex align-items-center mb-2" style="align-items: flex-start !important;">
+                                <p class="left-form-section col-lg-2">Query</p>
+                                <textarea name="customer-query" class="form-control w-25" style="resize: none;" rows="4" disabled></textarea>
+                            </div>
+                            <div class="status-bar-list mt-4 d-flex flex-column w-50">
+                                <div class="status-names d-flex justify-content-between mb-3">
+                                    <p class="status-name 1">Processing</p>
+                                    <p class="status-name 2">Opened</p>
+                                    <p class="status-name 3">Review</p>
+                                    <p class="status-name 4">Closed</p>
+                                </div>
+                                <div class="status-bar d-flex mt-3 mb-3 position-relative justify-content-between">
+                                    <div class="status-1 circle" style="background-color: #d9d8d8;"></div>
+                                    <div class="status-2 circle"></div>
+                                    <div class="status-3 circle"></div>
+                                    <div class="status-4 circle"></div>
+                                </div>
+                            </div>
+                            <div class="chat-link w-50 text-center">
+                                <button type="button" class="btn btn-secondary link-sess"><a href="#" target="_blank" style="text-decoration: none; color: black;">Start Chat</a></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="loading-spin h-100 w-100 d-grid disabled">
+                        <div class="loader"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='JS/ticketHistory.js') }}"nonce="a9d09b55f2b66e00f4d27f8b453003e6" ></script>
+<script type="text/javascript">
+    myVar = myFunc({{data|tojson}})
+</script>
+{% endblock %}

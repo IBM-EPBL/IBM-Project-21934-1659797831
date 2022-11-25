@@ -1,0 +1,115 @@
+.display-user-profile {
+    width: 150px;
+    height: 150px;
+    background-color: #63DEE5;
+    z-index: 5;
+    left: -100px;
+    top: 50px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0px 5px 10px 5px rgb(0,0,0,.45);
+    border-radius: 10px;
+}
+.choose_quries {
+    top: 60px;
+    flex-direction: column;
+}
+div.label {
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.21);
+    padding: 15px;
+    margin-bottom: 15px;
+}
+.company-line-list {
+    margin: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+}
+.company-line-list::-webkit-scrollbar{
+    width: 0;
+}
+.display-line-items {
+    height: calc(100vh - 153px);
+}
+
+.company-info {
+    width: 300px;
+    height: 200px;
+    padding: 6px;
+    cursor: pointer;
+    color: white;
+    margin: 5px;
+}
+img.company-logo {
+    width: 300px;
+    height: 180px;
+}
+.title {
+    display: flex;
+    align-items: center;
+}
+p {
+    padding-left: 50px;
+    font-size: 1.5rem;
+}
+
+.company-description{
+    text-align: center !important;
+    box-shadow: 0 1px 10px 5px rgba(255, 255, 255, .8);
+    border-radius: 10px;
+    height: inherit;
+}
+.company-desc{
+    margin: 20px 0;
+}
+
+.loader {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@media screen and (max-width: 480px) {
+    .left-tab {
+        width: calc(100vw - 91vw) !important;
+        height: calc(100vh - 60px) !important;
+        margin: 0 !important;
+        box-shadow: 0px 2px 5px 1px rgba(0,0, 0,0.5);
+    }
+    div.label.w-50.d-flex {
+        width: fit-content !important;
+    }
+    div.label.w-50.d-flex h4{
+        font-size: medium;
+    }
+    img.company-logo {
+        width: 200px !important;
+        height: 145px !important;
+    }
+    .choose_quries {
+        width: 90vw !important;
+    }
+    .query-raise {
+        display: none !important;
+    }
+    textarea.form-control {
+        width: 230px !important;
+        height: 80px !important;
+    }
+    .form-apply {
+        max-width: 280px !important;
+        margin-right: 0 !important;
+        width: 280px !important;
+    }
+}

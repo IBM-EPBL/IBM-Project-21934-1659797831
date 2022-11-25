@@ -1,0 +1,161 @@
+.admin-index-dashboard, .cust {
+    height: calc(100vh - 50px);
+    background-color: white;
+}
+.left-tab {
+    width: calc(100vw - 97.3vw);
+    height: calc(100vh - 50px);
+    margin: 0 !important;
+    box-shadow: 0px 2px 5px 1px rgba(0,0, 0,0.5);
+}
+.fa-icons {
+    font-size: xx-large;
+    margin: 10px;
+}
+.tab-icon-active {
+    box-shadow: 0px 0px 5px 2px rgba(0,0,0,.45);
+}
+.left-icons {
+    margin: 5px 0;
+}
+.ticket-tab {
+    width: 550px;
+    height: calc(100vh - 50px);
+    box-shadow: 3px 0px 5px 1px rgb(0 0 0 / 45%);
+    margin-left: 5px;
+    overflow: auto;
+}
+.ticket-box {
+    width: 100%;
+    height: fit-content;
+    box-shadow: 0px 0px 5px 1px rgba(0,0,0, .5);
+    margin-bottom: 0.5rem !important;
+    cursor: pointer;
+}
+.button-click-more {
+    border: 1px solid black;
+    border-radius: 10px;
+    outline: none;
+    padding: 1px 15px;
+    margin: 8px;
+}
+.top {
+    margin: 50px 10px 0 10px;
+}
+
+.green {
+    color: lightgreen;
+}
+
+.yellow {
+    color: rgb(223, 223, 139);
+}
+
+.red {
+    color: red;
+}
+
+.btn-click {
+    border: none;
+    padding: 0 15px;
+}
+
+.right-tab {
+    width: calc(100vw - 24.7vw);
+    height: calc(100vh - 50px);
+}
+
+.form-ticket-assign .form-section{
+    padding: 20px;
+    background-color: #f4f4f4;
+    margin-left: 5px;
+}
+
+.form-section p {
+    margin-bottom: 0 !important;
+}
+
+.assign-task {
+    margin-left: 5px;
+}
+
+.title-customer-form {
+    padding: 20px;
+    border-bottom: 1px solid #08080829;
+}
+
+p {
+    font-weight: bold;
+}
+
+.dropdown-menu a {
+    cursor: pointer;
+}
+
+.loader {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.dropdown-menu.show {
+    display: block;
+    box-shadow: 0px 0px 3px 1px rgba(0,0,0, .5);
+    height: 100px;
+    overflow: auto;
+}
+.dropdown-menu a {
+    text-decoration: none !important;
+    margin: 3px 0;
+}
+.dropdown-menu a.active {
+    background-color: lightblue;
+}
+
+.position-absolute button.btn {
+    padding: 3px 7px;
+    font-size: medium;
+    border-radius: 5px;
+}
+
+.modal-body {
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    height: 13%;
+    border-radius: 0 0 10px 10px;
+    text-align: center;
+    animation: ease-in-out 1s dropdown;
+}
+
+@keyframes dropdown {
+    from { top: -13%;}
+    to { top: 0;}
+}
+
+.status-bar {
+    background-color: #d9d8d8;
+    height: 5px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.status-names {
+    cursor: pointer;
+}
+
+.circle {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    top: -18px;
+    border-radius: 50%;
+}
