@@ -17,7 +17,7 @@ def context(contextArea, username, link = None):
 def sendMail(email, username, contextArea, link = None):
     try:
         area = context(contextArea, username, link)
-        sg = sendgrid.SendGridAPIClient('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')
+        sg = sendgrid.SendGridAPIClient('****************************')
         from_email = Email("customercareregistry1@gmail.com")
         to_email = To(email)
         if (contextArea == "verify"):
