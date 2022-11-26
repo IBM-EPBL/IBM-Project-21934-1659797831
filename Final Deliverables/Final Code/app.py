@@ -114,6 +114,11 @@ def CompanyRegistrationForm():
 
 app.add_url_rule("/CompanyRegistrationForm","CompanyRegistrationForm",CompanyRegistrationForm)
 
+@app.errorhandler(404)
+def page_not_found(e):
+    # note that i set the 404 status explicitly
+    return render_template('error.html'), 404
+
 def signup():
     return render_template('signup.html')
     
@@ -160,13 +165,16 @@ app.add_url_rule('/admin/32280/ccrfolks',"adminMainContent", adminMainPage)
 
 @app.route('/uploadAgents', methods=['POST'])
 def uploadAgents():
-    prev = request.get_json()
-    print(prev)
-    params = { "name" : prev["name"], "mail": prev["mail"], "dept": prev["dept"], "company_id": prev["company_id"] }
-    URL = "https://jp-tok.functions.appdomain.cloud/api/v1/web/fcd05172-d405-4c41-b460-d62a1ff87d93/CCR/insertAgentDetails.json"
-    r = requests.get(url = URL, params = params)
-    response = r.json()
-    return jsonify({'message': response})
+    try:
+        prev = request.get_json()
+        print(prev)
+        params = { "name" : prev["name"], "mail": prev["mail"], "dept": prev["dept"], "company_id": prev["company_id"] }
+        URL = "https://jp-tok.functions.appdomain.cloud/api/v1/web/fcd05172-d405-4c41-b460-d62a1ff87d93/CCR/insertAgentDetails.json"
+        r = requests.get(url = URL, params = params)
+        response = r.json()
+        return jsonify({'message': response})
+    except Exception as e:
+        return jsonify({'message':'Failed'})
 
 @app.route('/uploadCompany', methods=['POST'])
 def uploadCompany():
@@ -231,8 +239,10 @@ def uploadCompany():
                 # print("Transfer for {0} Complete!\n".format(item_name))
             except ClientError as be:
                 print("CLIENT ERROR: {0}\n".format(be))
+                return jsonify({'message':'Failed'})
             except Exception as e:
                 print("Unable to complete multi-part upload: {0}".format(e))
+                return jsonify({'message':'Failed'})
         # rand = sm.sendMail(email, name, "confirm", url)
         print(company)
         return jsonify({'message':'success', 'company': company})

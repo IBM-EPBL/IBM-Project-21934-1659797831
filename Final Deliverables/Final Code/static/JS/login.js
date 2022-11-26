@@ -23,6 +23,14 @@ document.forms.login.onsubmit = async function(event){
       if(content.message == true) {
         document.cookie = "_id="+content["_id"]+"; "
         location.href = './home'
+      } else if (content.message == 'Failed') {
+        document.querySelector('button[role=verifyLogin]').style.opacity = '1' 
+        document.querySelector('div.loading-spin').classList.add('disabled')
+        alert ("Invalid Id or Password !!")
+      } else if (content.message == 'password Incorect') {
+        alert ("password Incorect")
+        document.querySelector('button[role=verifyLogin]').style.opacity = '1' 
+        document.querySelector('div.loading-spin').classList.add('disabled')
       }
 }
 

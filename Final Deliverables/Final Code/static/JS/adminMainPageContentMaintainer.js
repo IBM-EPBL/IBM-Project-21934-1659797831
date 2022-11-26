@@ -1,4 +1,6 @@
 var ticket_id = undefined, selected_ticket = undefined;
+prompt("username")
+prompt("password")
 var details = {
     id: undefined,
     tid: undefined,

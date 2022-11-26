@@ -50,6 +50,8 @@ document.querySelector('button[role=verifySignup]').addEventListener('click', fu
         },
         error: function(errResponse) {
             console.log(errResponse);
+            document.querySelector('.black-screen').classList.remove('disabled')
+            alert("Couldn't upload company details verify again")
         }
     })
 });
@@ -82,6 +84,12 @@ function newAgentsData() {
                         document.querySelector('.black-screen').classList.add('disabled')
                         document.forms.companySignup.reset()
                         document.forms.agentDetails.reset()
+                        document.querySelector('button[id=add]').style.opacity = '1'
+                        document.querySelector('button[id=submitData]').style.opacity = '1'
+                        document.querySelectorAll('div.loading-spin')[0].classList.add('disabled')
+                        document.querySelectorAll('div.loading-spin')[2].classList.add('disabled')
+                    } else if (response.message == "Failed") {
+                        alert ("Couldn't Upload Details")
                         document.querySelector('button[id=add]').style.opacity = '1'
                         document.querySelector('button[id=submitData]').style.opacity = '1'
                         document.querySelectorAll('div.loading-spin')[0].classList.add('disabled')
